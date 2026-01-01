@@ -1,5 +1,10 @@
 import Image from "next/image";
+import HeroSection from "../components/home/heroSection";
 
 export default function Home() {
-  return <div className="h-screen bg-amber-50">Kazii</div>;
+  return (
+    <>
+      <HeroSection />
+    </>
+  );
 }
