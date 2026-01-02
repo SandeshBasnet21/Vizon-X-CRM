@@ -1,14 +1,13 @@
 import Link from "next/link";
-import PrimaryButton from "../ui/Button";
 import Button from "../ui/Button";
 
 export default function Navbar() {
   return (
-    <nav className="w-full bg-white shadow-sm">
+    <nav className="w-full bg-blue-200 shadow-sm ">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Left: Logo */}
         <div className="flex items-center gap-2">
-          <div className="w-9 h-9 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold">
+          <div className="w-9 h-9 rounded-xl bg-blue-600 flex items-center justify-center text-white font-bold">
             K
           </div>
           <span className="text-xl font-semibold text-gray-900">Karyavaar</span>
@@ -20,7 +19,7 @@ export default function Navbar() {
             Features
           </Link>
           <Link href="#" className="font-bold hover:text-blue-600">
-            Pricing
+            Pricingssss
           </Link>
           <Link href="#" className="font-bold hover:text-blue-600">
             About Us
@@ -31,7 +30,7 @@ export default function Navbar() {
         </div>
 
         {/* Right: Auth */}
-        <div className="flex items-center gap-6">
+        <div className="flex items-end gap-6">
           <Button label="Login" variant="text" />
 
           <Button label="Start Free Trial" variant="primary" showArrow />
