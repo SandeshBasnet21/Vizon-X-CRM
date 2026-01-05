@@ -30,7 +30,7 @@ export default function Button({
       type={type}
       onClick={onClick}
       disabled={disabled}
-      className={`${baseStyles} ${variants[variant]} ${className} disabled:opacity-50 disabled:cursor-not-allowed`}
+      className={`${baseStyles} ${variants[variant]} ${className} flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed`}
     >
       {label}
       {showArrow && <span className="text-lg">→</span>}
