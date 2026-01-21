@@ -1,8 +1,10 @@
 import Image from "next/image";
-import HeroSection from "../components/home/heroSection";
-import WhyCRMSection from "../components/home/whyCrmSection";
-import PowerfullFeaturesSection from "../components/home/powerfullFeaturesSection";
-import TestimonialSection from "../components/home/testimonialsSection";
+import HeroSection from "../components/home/herosection/heroSection";
+import WhyCRMSection from "../components/home/whycrmsection/whyCrmSection";
+
+import TestimonialSection from "../components/home/testimonials/testimonialsSection";
+import PowerfullFeaturesSection from "../components/home/powerfulsection/powerfullFeaturesSection";
+import CTASection from "../components/home/ctasection/ctaSection";
 
 export default function Home() {
   return (
@@ -11,6 +13,7 @@ export default function Home() {
       <WhyCRMSection />
       <PowerfullFeaturesSection />
       <TestimonialSection />
+      <CTASection />
     </>
   );
 }
