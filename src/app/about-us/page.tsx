@@ -100,8 +100,8 @@ const AboutUsPage = () => {
                 </section>
 
                 {/* Story Section */}
-                <section className="py-20 md:py-32 bg-white">
-                    <div className="container mx-auto px-6 md:px-8">
+                <section className="md:py-20 bg-white  px-4 md:px-20">
+                    <div className="container mx-auto  md:px-8">
                         <div className="grid lg:grid-cols-2 gap-16 md:gap-24 items-center">
                             <div className="order-2 lg:order-1">
                                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-8">
@@ -167,18 +167,18 @@ const AboutUsPage = () => {
                 </section>
 
                 {/* Values Section */}
-                <section className="py-20 md:py-32 bg-white">
+                <section className=" py-15 md:py-20 bg-white">
                     <div className="container mx-auto px-6 md:px-8">
                         <SectionHeader
                             title="Our"
                             highlight="Values"
                             subtitle="The principles that guide everything we do"
                         />
-                        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-16 md:mt-24">
+                        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8  md:mt-15">
                             {values.map((value, index) => (
                                 <div
                                     key={index}
-                                    className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 text-center hover:shadow-md transition-shadow"
+                                    className="bg-white rounded-2xl px-8 shadow-sm border border-gray-100 text-center hover:shadow-md transition-shadow"
                                 >
                                     <div className="w-16 h-16 rounded-2xl bg-blue-50 flex items-center justify-center mx-auto mb-6">
                                         <value.icon className="w-8 h-8 text-[#016AF5]" />
@@ -196,7 +196,7 @@ const AboutUsPage = () => {
                 </section>
 
                 {/* Team Section */}
-                <section className="py-20 md:py-32 bg-white">
+                <section className="py-15 md:py-20 bg-white">
                     <div className="container mx-auto px-6 md:px-8">
                         <SectionHeader
                             title="Meet Our"
