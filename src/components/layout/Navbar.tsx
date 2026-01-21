@@ -6,9 +6,9 @@ import { Menu, X } from "lucide-react";
 import Button from "../ui/Button";
 
 const navLinks = [
-  { name: "Features", href: "#home" },
-  { name: "Pricing", href: "#services" },
-  { name: "About Us", href: "#about" },
+  { name: "Features", href: "/features" },
+  { name: "Pricing", href: "/pricing" },
+  { name: "About Us", href: "/about-us" },
   { name: "Contact Us", href: "/contactus" },
 ];
 
@@ -37,14 +37,12 @@ const Navbar: React.FC = () => {
         </div>
 
         {/* Desktop Buttons */}
-        <div className="hidden items-center gap-4 rounded-full border px-4 py-2 md:flex">
+        <div className="hidden items-center gap-4 rounded-full border px-4 py-2 md:flex border-2">
           <Link href="/" className="text-[#006DDF]">
             Check Eligibility
           </Link>
           <Link href="/login">
-            <Button variant="primary" className="rounded-full">
-              Login
-            </Button>
+            <button className="py-2 px-8 rounded-full border bg-[#006DDF] text-white cursor-pointer">Login</button>
           </Link>
         </div>
 
@@ -79,9 +77,7 @@ const Navbar: React.FC = () => {
                 Check Eligibility
               </Link>
               <Link href="/login">
-                <Button variant="primary" className="w-full rounded-full">
-                  Login
-                </Button>
+                <button className="py-4 px-6 rounded-full ">Login</button>
               </Link>
             </div>
           </div>

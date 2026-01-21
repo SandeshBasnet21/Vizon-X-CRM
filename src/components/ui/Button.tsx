@@ -1,32 +1,39 @@
-import React from "react";
-
 interface ButtonProps {
-  variant?: "primary" | "secondary";
+  label: string;
   onClick?: () => void;
-  children: React.ReactNode;
+  type?: "button" | "submit" | "reset";
+  variant?: "primary" | "text";
+  showArrow?: boolean;
+  disabled?: boolean;
   className?: string;
 }
 
-const Button: React.FC<ButtonProps> = ({
-  variant = "primary",
+export default function Button({
+  label,
   onClick,
-  children,
-  className,
-}) => {
-  const baseClasses = "px-6 py-2 rounded font-medium transition-colors";
-  const variantClasses =
-    variant === "primary"
-      ? "bg-[#006DDF] text-white hover:bg-blue-700"
-      : "bg-white text-[#006DDF] border border-blue-600 hover:bg-blue-100";
+  type = "button",
+  variant = "primary",
+  showArrow = false,
+  disabled = false,
+  className = "",
+}: ButtonProps) {
+  const baseStyles =
+    "flex items-center gap-2 font-medium transition-all duration-200 focus:outline-none";
+
+  const variants = {
+    primary: "px-6 py-3 rounded-full bg-blue-600 hover:bg-blue-700",
+    text: " font-bold bg-transparent text-black px-3 py-1.5 rounded-full transition-all duration-200 hover:text-blue-600 hover:bg-blue-100 hover:rounded-full",
+  };
 
   return (
     <button
-      className={`${baseClasses} ${variantClasses} ${className}`}
+      type={type}
       onClick={onClick}
+      disabled={disabled}
+      className={`${baseStyles} ${variants[variant]} ${className} flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed`}
     >
-      {children}
+      {label}
+      {showArrow && <span className="text-lg">→</span>}
     </button>
   );
-};
-
-export default Button;
+}
