@@ -1,41 +1,94 @@
+"use client";
+
+import React, { useState } from "react";
 import Link from "next/link";
+import { Menu, X } from "lucide-react";
 import Button from "../ui/Button";
 
-export default function Navbar() {
+const navLinks = [
+  { name: "Features", href: "#home" },
+  { name: "Pricing", href: "#services" },
+  { name: "About Us", href: "#about" },
+  { name: "Contact Us", href: "/contactus" },
+];
+
+const Navbar: React.FC = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <nav className="w-full bg-blue-200 shadow-sm ">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        {/* Left: Logo */}
-        <div className="flex items-center gap-2">
-          <div className="w-9 h-9 rounded-xl bg-blue-600 flex items-center justify-center text-white font-bold">
-            K
-          </div>
-          <span className="text-xl font-semibold text-gray-900">Karyavaar</span>
+    <nav className="w-full bg-white shadow-md">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+        {/* Logo */}
+        <Link href="/" className="text-2xl font-bold text-blue-600">
+          Karyavaar
+        </Link>
+
+        {/* Desktop Menu */}
+        <div className="hidden items-center gap-12 md:flex">
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              href={link.href}
+              className="text-gray-700 transition hover:text-blue-600"
+            >
+              {link.name}
+            </Link>
+          ))}
         </div>
 
-        {/* Center: Menu */}
-        <div className="hidden md:flex items-center gap-8 text-gray-600 font-medium">
-          <Link href="#" className="font-bold hover:text-blue-600">
-            Features
+        {/* Desktop Buttons */}
+        <div className="hidden items-center gap-4 rounded-full border px-4 py-2 md:flex">
+          <Link href="/" className="text-[#006DDF]">
+            Check Eligibility
           </Link>
-          <Link href="#" className="font-bold hover:text-blue-600">
-            Pricingssss
-          </Link>
-          <Link href="#" className="font-bold hover:text-blue-600">
-            About Us
-          </Link>
-          <Link href="#" className="font-bold hover:text-blue-600">
-            Contact
+          <Link href="/login">
+            <Button variant="primary" className="rounded-full">
+              Login
+            </Button>
           </Link>
         </div>
 
-        {/* Right: Auth */}
-        <div className="flex items-end gap-6">
-          <Button label="Login" variant="text" />
-
-          <Button label="Start Free Trial" variant="primary" showArrow />
-        </div>
+        {/* Mobile Menu Button */}
+        <button
+          className="md:hidden"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle Menu"
+        >
+          {isOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
       </div>
+
+      {/* Mobile Menu */}
+      {isOpen && (
+        <div className="md:hidden border-t bg-white px-6 pb-6">
+          <div className="flex flex-col gap-4 pt-4">
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                className="text-gray-700 hover:text-blue-600"
+                onClick={() => setIsOpen(false)}
+              >
+                {link.name}
+              </Link>
+            ))}
+
+            {/* Mobile Buttons */}
+            <div className="mt-4 flex flex-col gap-3">
+              <Link href="/" className="text-grey-700">
+                Check Eligibility
+              </Link>
+              <Link href="/login">
+                <Button variant="primary" className="w-full rounded-full">
+                  Login
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
     </nav>
   );
-}
+};
+
+export default Navbar;
